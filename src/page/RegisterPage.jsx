@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { register } from "Redux/authOperations";
+import { register } from "auth/authOperations";
 
 export function RegisterPage() {
     const dispatch = useDispatch();

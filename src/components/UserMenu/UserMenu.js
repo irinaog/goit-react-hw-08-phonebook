@@ -1,13 +1,15 @@
-//email and logout
-// import { useSelector } from "react-redux"
+import authSelectors from "auth/auth-selectors"
+import { logOut } from "auth/authOperations";
+import { useSelector, useDispatch } from "react-redux"
 
 export const UserMenu = () => { 
-    // const email = useSelector(state => state.auth.user.email)
-    // console.log(email)
+    const dispatch = useDispatch();
+    const email = useSelector(authSelectors.getUserEmail)
+
     return (
         <>
-            <p>email</p>
-            <button type="button">Logout</button>
+            <p>{email}</p>
+            <button type="button" onClick={()=>dispatch(logOut())}>Logout</button>
         </>
     )
 }

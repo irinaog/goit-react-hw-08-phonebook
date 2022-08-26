@@ -2,7 +2,7 @@ import {   configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { filterReducer,  } from "./phoneBookReducer";
 import { contactsApi } from "./contactsSlice";
-import authSlice from 'Redux/authSlice';
+import authSlice from 'auth/authSlice';
 
 
 

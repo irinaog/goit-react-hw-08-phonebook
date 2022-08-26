@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { logIn } from "Redux/authOperations";
+import { logIn } from "auth/authOperations";
 
 export function LoginPage() {
     const dispatch = useDispatch();
@@ -10,8 +10,8 @@ export function LoginPage() {
     const handleChange = (e) => {
         const { name } = e.target;
         const { value } = e.target;
-       console.log(value)
-        console.log(name)
+    //    console.log(value)
+    //     console.log(name)
         switch (name) {
             case 'email': setEmail(value);
                 break;

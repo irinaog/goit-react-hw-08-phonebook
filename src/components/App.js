@@ -5,6 +5,8 @@
 import { Route, Routes } from "react-router-dom";
 import { RegisterPage } from "page/RegisterPage";
 import { SharedLayout } from "./SharedLayout/SharedLayout";
+import PhoneBookPage from "page/PhoneBookPage";
+import { LoginPage } from "page/LoginPage";
 // import { useFetchContactsQuery, useAddContactMutation } from 'Redux/contactsSlice'
 
 
@@ -27,7 +29,10 @@ export const App = () => {
       <>
         <Routes>
           <Route path='/goit-react-hw-08-phonebook/' element={<SharedLayout/>}>
-          <Route index element={<RegisterPage />} />
+            <Route index element={<RegisterPage />} />
+            <Route path='contacts' element={<PhoneBookPage />} />
+            <Route path='register' element={<RegisterPage />} />
+            <Route path='login' element={<LoginPage/> } />
           </Route>
         </Routes>
         {/* <h1 className="headlineApp">Phonebook</h1>

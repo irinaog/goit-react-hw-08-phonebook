@@ -1,28 +1,33 @@
-import { useState } from "react"
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { register } from "Redux/authOperations";
 
 export function RegisterPage() {
+    const dispatch = useDispatch();
     const [ name, setName ] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleChange = (e) => {
-    //     console.log(e.target.value)
+        const { name } = e.target;
         const { value } = e.target;
-        setName(value)
-    //     // switch (name) {
-    //     //     case 'name': setName(value);
-    //     //         break;
-    //     //     case 'email': setEmail(value);
-    //     //         break;
-    //     //     case 'password': setPassword(value);
-    //     //         break;
-    //     //     default: return;
-    //     // }
+    //    console.log(value)
+    //     console.log(name)
+        switch (name) {
+            case 'name': setName(value);
+                break;
+            case 'email': setEmail(value);
+                break;
+            case 'password': setPassword(value);
+                break;
+            default: return;
+        }
     };
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log({name:name, email:email, password:password})
+        console.log({ name: name, email: email, password: password })
+        dispatch(register({ name, email, password }));
         setName('');
         setEmail('');
         setPassword('');
@@ -51,7 +56,7 @@ export function RegisterPage() {
             value={password}
             onChange={handleChange}
             ></input>
-            <button type="submit">Log in</button>
+            <button type="submit">Sign in</button>
         </form>
     )
 }

@@ -1,13 +1,16 @@
-import PropTypes from 'prop-types';
+import { addNewContact } from 'contacts/contactsOperations';
+// import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import css from './FormAddContact.module.css';
 
-export const FormAddContacts = ({onSubmit}) => {
+export const FormAddContacts = () => {
+  const dispatch = useDispatch();
   
     const hendleSubmit = e => {
       e.preventDefault();
       const name = e.currentTarget.elements.name.value;
-      const phone = e.currentTarget.elements.number.value;
-      onSubmit({name, phone})
+      const number = e.currentTarget.elements.number.value;
+      dispatch(addNewContact({ name, number }))
       // console.log(contacts)
       e.currentTarget.reset();
       
@@ -45,6 +48,6 @@ export const FormAddContacts = ({onSubmit}) => {
     
 };
 
-FormAddContacts.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-}
+// FormAddContacts.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+// }

@@ -4,7 +4,7 @@ export const Navigation = () => {
     return (
         <>
             <NavLink  to="/goit-react-hw-08-phonebook/">Home</NavLink>
-                <NavLink  to="/goit-react-hw-08-phonebook/phonebook">Phonebook</NavLink>
+                <NavLink  to="/goit-react-hw-08-phonebook/contacts">Phonebook</NavLink>
         </>
     )
 }

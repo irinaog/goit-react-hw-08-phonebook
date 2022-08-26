@@ -1,6 +1,6 @@
 import css from './FilterContacts.module.css';
 import { useDispatch,  } from 'react-redux';
-import { filter } from 'Redux/phoneBookActions';
+import { filter } from 'contacts/phoneBookActions';
 
 
 export const FilterContacts = () => {

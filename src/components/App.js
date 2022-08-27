@@ -3,8 +3,10 @@
 // import { FilterContacts } from "./FilterContacts/FilterContacts";
 
 import { Route, Routes } from "react-router-dom";
-import { useDispatch,  } from "react-redux";
+import { useDispatch, useSelector,  } from "react-redux";
 import { useEffect } from "react";
+
+import { PrivateRoute } from "./PrivateRoute";
 
 import { SharedLayout } from "./SharedLayout/SharedLayout";
 import  RegisterPage  from "page/RegisterPage";
@@ -12,6 +14,8 @@ import PhoneBookPage from "page/PhoneBookPage";
 import HomePage from "page/HomePage";
 import  LoginPage  from "page/LogInPage";
 import { fetchCurrentUser } from "auth/authOperations";
+import { PublicRoute } from "./PublicRoute";
+import authSelectors from "auth/auth-selectors";
 // import { useFetchContactsQuery, useAddContactMutation } from 'Redux/contactsSlice'
 
 
@@ -20,10 +24,11 @@ import { fetchCurrentUser } from "auth/authOperations";
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log('currentUser')
+    // console.log('currentUser')
     dispatch(fetchCurrentUser())
   }, [dispatch])
 
+  const isFetchingCurrentUser = useSelector(authSelectors.getFetchUser);
   // const isLoggedIn = useSelector(state=>state.auth.isLoggedIn)
   // const { data } = useFetchContactsQuery();
   // const  [addContact]  = useAddContactMutation();
@@ -41,10 +46,36 @@ export const App = () => {
       <>
         <Routes>
           <Route path='/goit-react-hw-08-phonebook/' element={<SharedLayout/>}>
-            <Route index element={<HomePage />} />
-            <Route path='contacts' element={<PhoneBookPage />} />
-            <Route path='register' element={<RegisterPage />} />
-            <Route path='login' element={<LoginPage/> } />
+            <Route index
+              element={
+                <PublicRoute>
+                  <HomePage />
+                  </PublicRoute>
+              } />
+            <Route path='register' 
+              element={
+                <PublicRoute restricted>
+                  <RegisterPage />
+                  </PublicRoute>
+              } restricted />
+            {!isFetchingCurrentUser && <>
+            
+            <Route path='login'
+              element={
+                <PublicRoute restricted>
+                  <LoginPage />
+                  </PublicRoute>
+              }  />
+            <Route path='contacts'
+              element={<PrivateRoute >
+                <PhoneBookPage/>
+              </PrivateRoute>} >
+              </Route>
+            </>}
+            
+            {/* <Route path='contacts' element={<PhoneBookPage />} /> */}
+            {/* <Route path='register' element={<RegisterPage />} />
+            <Route path='login' element={<LoginPage/> } /> */}
           </Route>
         </Routes>
         {/* <h1 className="headlineApp">Phonebook</h1>

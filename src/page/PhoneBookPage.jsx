@@ -15,7 +15,7 @@ export default function PhoneBookPage() {
   const contacts = useSelector(state => state.contacts.items);
 
   useEffect(() => {
-    console.log('getcontact')
+    // console.log('getcontact')
     dispatch(getContacts())
   }, [dispatch]);
   

@@ -13,7 +13,7 @@ const token = {
     },
 };
 
-export const register = createAsyncThunk('auth/register,', async credentials => {
+export const register = createAsyncThunk('auth/register', async credentials => {
     try {
         const { data } = await axios.post('/users/signup', credentials)
         token.set(data.token);
@@ -51,7 +51,7 @@ export const fetchCurrentUser = createAsyncThunk('phonebook/refresh', async (_, 
     // console.log('token',persistedToken)
 
     if (persistedToken === null) {
-        console.log('token is absent')
+        // console.log('token is absent')
         return thunkApi.rejectWithValue();
     }
 

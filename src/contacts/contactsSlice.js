@@ -1,27 +1,32 @@
-import { createSlice } from '@reduxjs/toolkit'
-// import { getContacts, addNewContact } from './contactsOperations';
+import { createSlice } from '@reduxjs/toolkit';
+import { getContacts, addNewContact , deleteContact} from './contactsOperations';
 
 const initialState = {
-    items: null,
+    items: [],
     filter: '',
 };
 
 const contactSlice = createSlice({
     name: 'phonebook',
     initialState,
-    reducers: {
-        //  [getContacts.fulfilled](state, action) {
-        //     state.items = action.payload  
-        // },
-        // [addNewContact.fulfilled](state, action)
-        // [getContacts.fulfilled](state, action) {state.items = action.payload},
-        // addContact (state, action) {state.items=[...state.items,action.payload]},
-        // deleteContact(state, action) {state.items = state.items.filter(contact => contact.id !== action.payload)},
-        // filter(state, action) {state.filter = action.payload},
-    },
+    extraReducers: {
+        [getContacts.fulfilled](state, action) {
+            // console.log(action.payload)
+            state.items = action.payload
+        },
+        [addNewContact.rejected](state, action) {
+            alert('existing contact')
+        },
+        [addNewContact.fulfilled](state, action) {
+            state.items.push(action.payload)
+        },
+        [deleteContact.fulfilled](state, action) {
+        state.items = state.items.filter(contact=>contact.id!==action.payload)
+        }
+    }
 });
 
-export const { addContact, deleteContact, filter } = contactSlice.actions;
+// export const { addContact, deleteContact, filter } = contactSlice.actions;
 export default contactSlice.reducer;
 
 

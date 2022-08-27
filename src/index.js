@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { Provider } from 'react-redux';
-import { store,  } from 'contacts/store';
-// import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from 'contacts/store';
+import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from "react-router-dom";
 
 import { App } from 'components/App';
@@ -15,9 +15,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
     <Provider store={store}>
-    {/* <PersistGate loading={null} persistor={persistor}> */}
+    <PersistGate loading={null} persistor={persistor}>
       <App />
-      {/* </PersistGate> */}
+      </PersistGate>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

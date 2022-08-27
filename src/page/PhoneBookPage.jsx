@@ -1,8 +1,9 @@
 import { FormAddContacts } from "components/FormAddContacts/FormAddContacts";
 // import { FilterContacts } from "components/FilterContacts/FilterContacts";
-// import { ContactsList } from "components/ContactsList/ContactList";
+import { ContactsList } from "components/ContactsList/ContactList";
 import { getContacts } from "contacts/contactsOperations";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector  } from "react-redux";
+import { useEffect } from "react";
 
 // import { useFetchContactsQuery, useAddContactMutation } from 'contacts/contactsSlice';
 // import { useState } from "react";
@@ -11,21 +12,11 @@ import { useDispatch } from "react-redux";
 
 export default function PhoneBookPage() {
   const dispatch = useDispatch();
+  const contacts = useSelector(state => state.contacts.items);
+  // const token = useSelector(state=>state.auth.token)
+
+  useEffect(() => {dispatch(getContacts())}, [dispatch]);
   
- 
-  dispatch(getContacts())
-  // const contacts = dispatch(getContacts());
-  // console.log(contacts)
-  //  console.log()
-  // getContacts();
-  // const [token, setToken] = useState();
-  // const contacts = getContacts;
-  // console.log(contacts)
-  // const { data } = useFetchContactsQuery();
-  // token = data.token;
-  // console.log(data.token)
-  // console.log(data)
-  // const  [addContact]  = useAddContactMutation();
   
   // const formSubmitHandler = (newData) => {
   //   if (data && data.find(contact => (newData.name === contact.name))){
@@ -40,13 +31,13 @@ export default function PhoneBookPage() {
         <h1 className="headlineApp">Phonebook</h1>
         <FormAddContacts  />
         {/* <FilterContacts/> */}
-{/* 
-        {data && data.length>0 &&
+
+        {contacts && contacts.length>0 &&
           <>
-        <h2 className="contactListTitle">Contacts</h2> */}
-        {/* <ContactsList  /> */}
-        {/* </>
-            } */}
+        <h2 className="contactListTitle">Contacts</h2>
+        <ContactsList  />
+        </>
+            }
         </>
     )
 };

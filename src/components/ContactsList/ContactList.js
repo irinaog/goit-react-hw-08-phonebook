@@ -1,38 +1,33 @@
-// import { ContactsListItem } from "components/ContactsListItem/ContactListItem";
+import { ContactsListItem } from "components/ContactsListItem/ContactListItem";
 // import { getContacts } from "contacts/contactsOperations";
-// import { useDispatch } from "react-redux";
-// import css from './ContactsList.module.css';
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import css from './ContactsList.module.css';
+
 // import PropTypes from 'prop-types';
 
-// export const ContactsList = () => {
+export const ContactsList = () => {
     
-//     const dispatch = useDispatch();
-//     const contacts = dispatch(getContacts())
-  
-//     const filter = useSelector(state => state.filter);
+    // const dispatch = useDispatch();
+    const contacts = useSelector(state => state.contacts.items)
+ 
 
-//     const getFilterContacts = () => {
-//         return contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()))
-//     };
-
-//     return (
+    return (
         
-//         <ul className={css.contactList}>
-//              {filter === '' ? 
-//                  contacts.map(({ name, number, id }) => (
-//                 <ContactsListItem key={id} name={name} number={number} id={id} />
-//             )) 
-//              : 
+        <ul className={css.contactList}>
+             {/* {filter === '' ?  */}
+                 { contacts.length>0 && contacts.map(({ name, number, id }) => (
+                <ContactsListItem key={id} name={name} number={number} id={id} />
+            )) }
+             {/* : 
             
-//                 getFilterContacts().map(({ name, id, number }) =>
-//                     <ContactsListItem key={id} name={name} number={number} id={id} />
-//                 )
-//             } 
-          
-//         </ul>
-//     )
-// };
+                getFilterContacts().map(({ name, id, number }) =>
+                    <ContactsListItem key={id} name={name} number={number} id={id} />
+                )
+            } 
+           */}
+        </ul>
+    )
+};
 
 // ContactsList.propTupes = {
 //     contacts: PropTypes.arrayOf(PropTypes.shape({

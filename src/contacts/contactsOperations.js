@@ -7,7 +7,8 @@ axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 export const getContacts = createAsyncThunk('phonebook/contacts', async ()=> {
     try {
-        const { data } = await axios.get('/contacts')
+        const { data } = await axios.get('/contacts');
+        // console.log('just get')
         return data
     } catch (error) {
         console.log('error with getcontact')

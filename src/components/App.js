@@ -3,7 +3,7 @@
 // import { FilterContacts } from "./FilterContacts/FilterContacts";
 
 import { Route, Routes } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch,  } from "react-redux";
 import { useEffect } from "react";
 
 import { SharedLayout } from "./SharedLayout/SharedLayout";
@@ -20,9 +20,11 @@ import { fetchCurrentUser } from "auth/authOperations";
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
+    console.log('currentUser')
     dispatch(fetchCurrentUser())
   }, [dispatch])
 
+  // const isLoggedIn = useSelector(state=>state.auth.isLoggedIn)
   // const { data } = useFetchContactsQuery();
   // const  [addContact]  = useAddContactMutation();
   

@@ -13,9 +13,11 @@ import { useEffect } from "react";
 export default function PhoneBookPage() {
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contacts.items);
-  // const token = useSelector(state=>state.auth.token)
 
-  useEffect(() => {dispatch(getContacts())}, [dispatch]);
+  useEffect(() => {
+    console.log('getcontact')
+    dispatch(getContacts())
+  }, [dispatch]);
   
   
   // const formSubmitHandler = (newData) => {

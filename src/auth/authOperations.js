@@ -58,6 +58,7 @@ export const fetchCurrentUser = createAsyncThunk('phonebook/refresh', async (_, 
     token.set(persistedToken)
     try {
         const { data } = await axios.get('/users/current');
+        // console.log('persisted get')
         return data;
     } catch (error) {
         console.log('error in fetchCurrentUser')

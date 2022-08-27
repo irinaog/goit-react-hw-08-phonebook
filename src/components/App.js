@@ -6,7 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import { RegisterPage } from "page/RegisterPage";
 import { SharedLayout } from "./SharedLayout/SharedLayout";
 import PhoneBookPage from "page/PhoneBookPage";
-import { LoginPage } from "page/LoginPage";
+import { LoginPage } from "page/LogInPage";
 // import { useFetchContactsQuery, useAddContactMutation } from 'Redux/contactsSlice'
 
 

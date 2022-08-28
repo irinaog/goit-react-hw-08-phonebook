@@ -17,7 +17,7 @@ const contactSlice = createSlice({
             state.items = action.payload
         },
         [addNewContact.rejected](state, action) {
-            alert('existing contact')
+            alert(`${action.payload} is already in contacts`)
         },
         [addNewContact.fulfilled](state, action) {
             state.items.push(action.payload)

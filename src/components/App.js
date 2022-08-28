@@ -31,6 +31,7 @@ export const App = () => {
   const isFetchingCurrentUser = useSelector(authSelectors.getFetchUser);
     return (
       <>
+         {!isFetchingCurrentUser && <>
         <Routes>
           <Route path='/goit-react-hw-08-phonebook/' element={<SharedLayout/>}>
             <Route index
@@ -45,7 +46,7 @@ export const App = () => {
                   <RegisterPage />
                   </PublicRoute>
               } restricted />
-            {!isFetchingCurrentUser && <>
+           
             
             <Route path='login'
               element={
@@ -58,7 +59,7 @@ export const App = () => {
                 <PhoneBookPage/>
               </PrivateRoute>} >
               </Route>
-            </>}
+            
             
             {/* <Route path='contacts' element={<PhoneBookPage />} /> */}
             {/* <Route path='register' element={<RegisterPage />} />
@@ -75,7 +76,8 @@ export const App = () => {
         <ContactsList contacts ={data} />
         </>
         } */}
-      </>
+      </>}
+        </>
     );
   
 };

@@ -10,8 +10,10 @@ const contactSlice = createSlice({
     name: 'phonebook',
     initialState,
     extraReducers: {
+        [getContacts.pending](state) {
+            state.items = []
+        },
         [getContacts.fulfilled](state, action) {
-            // console.log(action.payload)
             state.items = action.payload
         },
         [addNewContact.rejected](state, action) {
@@ -21,15 +23,11 @@ const contactSlice = createSlice({
             state.items.push(action.payload)
         },
         [filterContact.fulfilled](state, action) {
-            // state.items = state.items.filter(contact=>contact.name.toLowerCase().includes(action.payload.toLowerCase()))
-            // console.log(action.payload)
             state.filter = action.payload;
         },
-        // [filterContact.rejected](state, action) {
-        //     state.items = action.payload
-        //     console.log(action.payload)
-        //     state.filter = true;
-        // },
+        [filterContact.rejected](state, action) {
+            state.filter = '';
+        },
         [deleteContact.fulfilled](state, action) {
         state.items = state.items.filter(contact=>contact.id!==action.payload)
         }

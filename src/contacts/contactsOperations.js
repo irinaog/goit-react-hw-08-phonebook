@@ -25,18 +25,12 @@ export const addNewContact = createAsyncThunk('phonebook/add', async newContact 
 });
 
 export const filterContact = createAsyncThunk('phonebook/filter', async (findContact, thunkApi) => {
+    
     if (findContact === '') {
-        const state = thunkApi.getState();
-        const contacts = state.contacts.items;
-        return thunkApi.rejectedWithValue(contacts);
+        return thunkApi.rejectWithValue()
     }
-
-    try {
-            await axios.get('/contacts');
-            return findContact;
-    } catch (error) {
-    //error
-    }   
+      return findContact  
+    
 });
 
 export const deleteContact = createAsyncThunk('phonebook/delete', async (contactId) => {

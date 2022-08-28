@@ -29,19 +29,6 @@ export const App = () => {
   }, [dispatch])
 
   const isFetchingCurrentUser = useSelector(authSelectors.getFetchUser);
-  // const isLoggedIn = useSelector(state=>state.auth.isLoggedIn)
-  // const { data } = useFetchContactsQuery();
-  // const  [addContact]  = useAddContactMutation();
-  
-  // const formSubmitHandler = (newData) => {
-  //   if (data.find(contact => (newData.name === contact.name))){
-  //     alert(newData.name + ' is already in contacts' )
-  //   }
-  //   else {
-  //     addContact({name:newData.name,  phone:newData.phone})
-  //   }
-  // };
-
     return (
       <>
         <Routes>

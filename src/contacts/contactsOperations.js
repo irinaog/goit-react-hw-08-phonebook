@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createAsyncThunk,  } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 
 
@@ -15,8 +15,6 @@ export const getContacts = createAsyncThunk('phonebook/contacts', async ()=> {
     }
 });
 
-
-
 export const addNewContact = createAsyncThunk('phonebook/add', async newContact => {
       try {
         const  {data}  = await axios.post('/contacts', newContact);
@@ -24,6 +22,21 @@ export const addNewContact = createAsyncThunk('phonebook/add', async newContact 
     } catch (error) {
         //error
     }
+});
+
+export const filterContact = createAsyncThunk('phonebook/filter', async (findContact, thunkApi) => {
+    if (findContact === '') {
+        const state = thunkApi.getState();
+        const contacts = state.contacts.items;
+        return thunkApi.rejectedWithValue(contacts);
+    }
+
+    try {
+            await axios.get('/contacts');
+            return findContact;
+    } catch (error) {
+    //error
+    }   
 });
 
 export const deleteContact = createAsyncThunk('phonebook/delete', async (contactId) => {

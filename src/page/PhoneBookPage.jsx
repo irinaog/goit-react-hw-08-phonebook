@@ -1,5 +1,5 @@
 import { FormAddContacts } from "components/FormAddContacts/FormAddContacts";
-// import { FilterContacts } from "components/FilterContacts/FilterContacts";
+import { FilterContacts } from "components/FilterContacts/FilterContacts";
 import { ContactsList } from "components/ContactsList/ContactList";
 import { getContacts } from "contacts/contactsOperations";
 import { useDispatch, useSelector  } from "react-redux";
@@ -32,7 +32,7 @@ export default function PhoneBookPage() {
         <>
         <h1 className="headlineApp">Phonebook</h1>
         <FormAddContacts  />
-        {/* <FilterContacts/> */}
+        <FilterContacts/>
 
         {contacts && contacts.length>0 &&
           <>

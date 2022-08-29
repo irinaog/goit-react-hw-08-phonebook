@@ -17,7 +17,4 @@ export function PrivateRoute({ children }) {
         return children;
     }
     return <Navigate to='/goit-react-hw-08-phonebook/login' replace />;
-        // {isLoggedIn? children: <Navigate to='/goit-react-hw-08-phonebook/login'replace/>}
-    
-    
-}
+};

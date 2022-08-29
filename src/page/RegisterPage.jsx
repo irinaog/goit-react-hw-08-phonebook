@@ -34,7 +34,7 @@ export default function RegisterPage() {
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log({ name: name, email: email, password: password })
+        // console.log({ name: name, email: email, password: password })
         dispatch(register({ name, email, password }));
         setName('');
         setEmail('');
@@ -52,7 +52,8 @@ export default function RegisterPage() {
                 value={name}
                 onChange={handleChange}
                 size='small'
-            />
+                required
+                />
             <TextField
                 id="outlined-name"
                 label='Email'
@@ -61,6 +62,7 @@ export default function RegisterPage() {
                 value={email}
                 onChange={handleChange}
                 size='small'
+                required
             />
             <TextField
                 id="outlined-name"
@@ -70,6 +72,7 @@ export default function RegisterPage() {
                 value={password}
                 onChange={handleChange}
                 size='small'
+                required
             />
             </ThemeProvider>
             

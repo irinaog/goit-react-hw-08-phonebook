@@ -29,21 +29,21 @@ export const App = () => {
         <Routes>
           <Route path='/goit-react-hw-08-phonebook/' element={<SharedLayout/>}>
           
-            <Route path='/goit-react-hw-08-phonebook/register' 
+            <Route path='register' 
               element={
                 <PublicRoute restricted>
                   <RegisterPage />
                   </PublicRoute>
               } restricted />
            
-            <Route path='/goit-react-hw-08-phonebook/login'
+            <Route path='login'
               element={
                 <PublicRoute restricted>
                   <LoginPage />
                   </PublicRoute>
               } />
               
-            <Route path='/goit-react-hw-08-phonebook/contacts'
+            <Route path='contacts'
               element={<PrivateRoute >
                 <PhoneBookPage/>
               </PrivateRoute>} >

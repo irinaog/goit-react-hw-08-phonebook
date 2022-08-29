@@ -1,7 +1,11 @@
-import css from './FilterContacts.module.css';
+// import css from './FilterContacts.module.css';
 import { useDispatch, } from 'react-redux';
 import { filterContact } from 'contacts/contactsOperations';
-// import { filter } from 'contacts/phoneBookActions';
+
+//components mui
+import { ThemeProvider } from '@mui/material/styles'
+import theme from "themes/themes";
+import TextField from '@mui/material/TextField';
 
 
 export const FilterContacts = () => {
@@ -9,15 +13,25 @@ export const FilterContacts = () => {
     const dispatch = useDispatch();
 
     return (<>
-        <div className={css.filterContainer}>
-        <label htmlFor='filter' className={css.filterTitle}> Find contacts by name </label>
+        <div style={theme.Form}>
+            <ThemeProvider theme={theme.Input}>
+                 <TextField
+                id="outlined-name"
+                label='Find contact by name'
+                type="text"
+                name="filter"
+                onChange={(e) => dispatch(filterContact(e.target.value))}
+        size='small'
+                />
+        {/* <label htmlFor='filter' className={css.filterTitle}> Find contacts by name </label>
         <input
                 id='filter'
                 className={css.filterInput}
                 type="text"
                 name="filter"
                 onChange={(e) => dispatch(filterContact(e.target.value))}
-            ></input>
+                ></input> */}
+            </ThemeProvider>
         </div>
     </>
     )

@@ -1,4 +1,4 @@
-@import-normalize; /* bring in normalize.css styles */
+/* @import-normalize; bring in normalize.css styles */
 
 body {
   margin: 0;
@@ -15,16 +15,14 @@ code {
 }
 
 h1, h2, h3{
-  margin: 0 ;
+  margin-top: 20px ;
   font-family: 'Raleway',sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   color: #093028;
   text-align: center;
   
 }
-h2{
-  font-weight: 400;
-}
+
 
 ul{
   list-style: none;

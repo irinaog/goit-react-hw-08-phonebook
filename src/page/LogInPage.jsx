@@ -2,6 +2,12 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { logIn } from "auth/authOperations";
 
+//components mui
+import { ThemeProvider } from '@mui/material/styles'
+import theme from "themes/themes";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
 export default function LoginPage() {
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
@@ -29,22 +35,44 @@ export default function LoginPage() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email</label>
+        <form onSubmit={handleSubmit} style={theme.Form}>
+            <ThemeProvider theme={theme.Input}>
+                <TextField
+                id="outlined-name"
+                label='Email'
+                type='text'
+            name='email'
+            value={email}
+            onChange={handleChange}
+                size='small'
+                ></TextField>
+            {/* <label htmlFor="email">Email</label>
             <input id="email"
             type='text'
             name='email'
             value={email}
             onChange={handleChange}
-            ></input>
-            <label htmlFor="password">Password</label>
+            ></input> */}
+            <TextField
+                id="outlined-name"
+                label='Password'
+                 type='text'
+            name='password'
+            value={password}
+            onChange={handleChange}
+                size='small'
+                ></TextField>
+            {/* <label htmlFor="password">Password</label>
             <input id="password"
             type='text'
             name='password'
             value={password}
             onChange={handleChange}
-            ></input>
-            <button type="submit">Sign in</button>
+                ></input> */}
+            </ThemeProvider>
+            <ThemeProvider theme={theme.Button}>
+                <Button type="submit" variant="contained">Sign in</Button>
+            </ThemeProvider>
         </form>
     )
 };

@@ -2,6 +2,14 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "auth/authOperations";
 
+//components mui
+import { ThemeProvider } from '@mui/material/styles'
+import theme from "themes/themes";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
+
+
 export default function RegisterPage() {
     const dispatch = useDispatch();
     const [ name, setName ] = useState('');
@@ -34,15 +42,39 @@ export default function RegisterPage() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name</label>
-            <input id="name"
-            type='text'
-            name='name'
-            value={name}
+        <form onSubmit={handleSubmit} style={theme.Form}> 
+            {/* <TextField></TextField> */}
+            {/* <label htmlFor="name">Name</label> */}
+            <ThemeProvider theme={theme.Input}>
+            <TextField
+                id="outlined-name"
+                label='Name'
+                type='text'
+                name='name'
+                value={name}
+                onChange={handleChange}
+        size='small'
+                />
+                 <TextField
+                id="outlined-name"
+                label='Email'
+                 type='text'
+            name='email'
+            value={email}
             onChange={handleChange}
-            ></input>
-            <label htmlFor="email">Email</label>
+        size='small'
+                ></TextField>
+                 <TextField
+                id="outlined-name"
+                label='Password'
+                type='text'
+            name='password'
+            value={password}
+            onChange={handleChange}
+        size='small'
+                ></TextField>
+                </ThemeProvider>
+            {/* <label htmlFor="email">Email</label>
             <input id="email"
             type='text'
             name='email'
@@ -55,8 +87,11 @@ export default function RegisterPage() {
             name='password'
             value={password}
             onChange={handleChange}
-            ></input>
-            <button type="submit">Sign in</button>
-        </form>
+            ></input> */}
+            {/* <button type="submit">Sign in</button> */}
+            <ThemeProvider theme={theme.Button}>
+            <Button type="submit" variant="contained" >Sign in</Button>
+            </ThemeProvider>
+           </form> 
     )
 }

@@ -1,10 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { Link } from '../AppBar';
+
 
 export const Navigation = () => { 
     return (
         <>
-            <NavLink  to="/goit-react-hw-08-phonebook/">Home</NavLink>
-                <NavLink  to="/goit-react-hw-08-phonebook/contacts">Phonebook</NavLink>
+                <Link to="/goit-react-hw-08-phonebook/">Home</Link>
+                <Link to="/goit-react-hw-08-phonebook/contacts">Phonebook</Link>
         </>
     )
 }

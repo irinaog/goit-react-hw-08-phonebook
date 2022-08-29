@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 
 import { Loader } from "components/Loader/Loader";
+import Container from '@mui/material/Container';
 
 // import { UserMenu } from "components/UserMenu/UserMenu";
 import { AppBar } from "components/AppBar";
@@ -9,12 +10,13 @@ import { AppBar } from "components/AppBar";
 
 export const SharedLayout = () => {
     return (
-        <div>
+        <>
             <AppBar/>
-            
+        <Container maxWidth='lg'>
             <Suspense fallback={<Loader/>}>
                 <Outlet />
             </Suspense>
-        </div>
+            </Container>
+            </>
     )
 }

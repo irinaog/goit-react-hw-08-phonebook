@@ -3,7 +3,10 @@ import { ContactsListItem } from "components/ContactsListItem/ContactListItem";
 // import { filter } from "contacts/phoneBookActions";
 // import { getContacts } from "contacts/contactsOperations";
 import { useSelector } from "react-redux";
-import css from './ContactsList.module.css';
+// import css from './ContactsList.module.css';
+import { ThemeProvider } from '@mui/material/styles';
+import List from '@mui/material/List';
+import theme from "themes/themes";
 
 // import PropTypes from 'prop-types';
 
@@ -20,9 +23,9 @@ export const ContactsList = () => {
  
 
     return (
-        
-        <ul className={css.contactList}>
-             {filter === '' ? 
+        <ThemeProvider theme={theme.ContactList}>
+        <List >
+            {filter === '' ? 
                   contacts.length>0 && contacts.map(({ name, number, id }) => (
                 <ContactsListItem key={id} name={name} number={number} id={id} />
             )) 
@@ -32,8 +35,23 @@ export const ContactsList = () => {
                     <ContactsListItem key={id} name={name} number={number} id={id} />
                 )
             } 
+
+            </List>
+        </ThemeProvider>
         
-        </ul>
+        // <ul className={css.contactList}>
+        //      {filter === '' ? 
+        //           contacts.length>0 && contacts.map(({ name, number, id }) => (
+        //         <ContactsListItem key={id} name={name} number={number} id={id} />
+        //     )) 
+        //      : 
+            
+        //         getFilterContacts().map(({ name, id, number }) =>
+        //             <ContactsListItem key={id} name={name} number={number} id={id} />
+        //         )
+        //     } 
+        
+        // </ul>
     )
 };
 

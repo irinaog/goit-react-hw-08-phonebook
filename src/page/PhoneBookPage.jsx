@@ -5,30 +5,15 @@ import { getContacts } from "contacts/contactsOperations";
 import { useDispatch, useSelector  } from "react-redux";
 import { useEffect } from "react";
 
-// import { useFetchContactsQuery, useAddContactMutation } from 'contacts/contactsSlice';
-// import { useState } from "react";
-
-
-
 export default function PhoneBookPage() {
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contacts.items);
-  // const isFetchingCurrentUser = useSelector(authSelectors.getFetchUser)
 
   useEffect(() => {
-    // console.log('getcontact')
     dispatch(getContacts())
   }, [dispatch]);
   
-  
-  // const formSubmitHandler = (newData) => {
-  //   if (data && data.find(contact => (newData.name === contact.name))){
-  //     alert(newData.name + ' is already in contacts' )
-  //   }
-  //   else {
-  //     addContact({name:newData.name,  phone:newData.phone})
-  //   }
-  // };
+
     return (
         <>
         <h1 className="headlineApp">Phonebook</h1>
@@ -37,7 +22,6 @@ export default function PhoneBookPage() {
           <>
           <FilterContacts/>
           <h2 className="contactListTitle">Contacts</h2>
-          {/* {isFetchingCurrentUser&&} */}
         <ContactsList  />
         </>
             }

@@ -43,8 +43,6 @@ export default function RegisterPage() {
 
     return (
         <form onSubmit={handleSubmit} style={theme.Form}> 
-            {/* <TextField></TextField> */}
-            {/* <label htmlFor="name">Name</label> */}
             <ThemeProvider theme={theme.Input}>
             <TextField
                 id="outlined-name"
@@ -53,45 +51,31 @@ export default function RegisterPage() {
                 name='name'
                 value={name}
                 onChange={handleChange}
-        size='small'
-                />
-                 <TextField
+                size='small'
+            />
+            <TextField
                 id="outlined-name"
                 label='Email'
                  type='text'
-            name='email'
-            value={email}
-            onChange={handleChange}
-        size='small'
-                ></TextField>
-                 <TextField
+                name='email'
+                value={email}
+                onChange={handleChange}
+                size='small'
+            />
+            <TextField
                 id="outlined-name"
                 label='Password'
                 type='text'
-            name='password'
-            value={password}
-            onChange={handleChange}
-        size='small'
-                ></TextField>
-                </ThemeProvider>
-            {/* <label htmlFor="email">Email</label>
-            <input id="email"
-            type='text'
-            name='email'
-            value={email}
-            onChange={handleChange}
-            ></input>
-            <label htmlFor="password">Password</label>
-            <input id="password"
-            type='text'
-            name='password'
-            value={password}
-            onChange={handleChange}
-            ></input> */}
-            {/* <button type="submit">Sign in</button> */}
-            <ThemeProvider theme={theme.Button}>
-            <Button type="submit" variant="contained" >Sign in</Button>
+                name='password'
+                value={password}
+                onChange={handleChange}
+                size='small'
+            />
             </ThemeProvider>
-           </form> 
+            
+        <ThemeProvider theme={theme.Button}>
+            <Button type="submit" variant="contained" >Sign in</Button>
+        </ThemeProvider>
+        </form> 
     )
-}
+};

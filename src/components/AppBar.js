@@ -4,11 +4,8 @@ import { AuthNav } from "./UserMenu/AuthNav";
 import authSelectors from "auth/auth-selectors";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-// import Link from '@mui/material/Link';
 import styled from 'styled-components';
 
-
-// import { Container, Header, Link } from "./SharedLayout.styled"
 
 export const AppBar = () => {
     const isLoggedIn = useSelector(authSelectors.getIsLoggedIn)
@@ -19,7 +16,6 @@ export const AppBar = () => {
             backgroundColor: "#6997D3	",
             display: "flex",
             flexWrap: "nowrap",
-            // width: "100%",
             justifyContent: "space-between",
             alignItems: 'center',
         }}>

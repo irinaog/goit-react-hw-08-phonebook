@@ -1,6 +1,5 @@
 import { addNewContact } from 'contacts/contactsOperations';
 import { useDispatch } from 'react-redux';
-// import css from './FormAddContact.module.css';
 
 import { ThemeProvider } from '@mui/material/styles'
 import theme from "themes/themes";
@@ -24,53 +23,32 @@ export const FormAddContacts = () => {
       <form onSubmit={hendleSubmit} style={theme.Form}> 
         <ThemeProvider theme={theme.Input}>
           <TextField
-                id="outlined-name"
-                label='Name'
-                type="text"
-              name="name"
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                required  
-        size='small'
-                ></TextField>
-          {/* <label className={css.formInputTitle}>
-            Name 
-            <input
-            className={css.formInput}
+              id="outlined-name"
+              label='Name'
               type="text"
               name="name"
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                required  
-                  />
-          </label> */}
+              required  
+              size='small'
+          />
+          
            <TextField
-                id="outlined-name"
-                label='Number'
-               type="tel"
-                name="number"
-                pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                required
-        size='small'
-                />
-           {/* <label className={css.formInputTitle}>
-            Number
-            <input
-            className={css.formInput}
-                type="tel"
-                name="number"
-                pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                required
+              id="outlined-name"
+              label='Number'
+              type="tel"
+              name="number"
+              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+              required
+              size='small'
             />
-          </label> */}
         </ThemeProvider>
+
         <ThemeProvider theme={theme.Button}>
           <Button type="submit" variant='contained'>Add contact</Button>
         </ThemeProvider>  
       </form></>
         )
-    
 };
 
